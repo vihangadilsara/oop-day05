@@ -1,3 +1,4 @@
+import java.util.*;
 class Node{
 	int data;
 	Node next;
@@ -40,25 +41,33 @@ class Stack{
 	public void clear(){
 		top=null;
 	}
+	public int search(int data){
+		Node temp=top;
+		int index=0;
+		while(temp!=null){
+			if(temp.data==data){
+				return index;
+			}
+			index++;
+			temp=temp.next;
+		}
+		return -1;
+	}
 }
+
+
+
 class Demo{
 	public static void main(String args[]){
 		Stack s1=new Stack();
-		s1.printStack();//[empty]
-		System.out.println("Size of the stack : "+s1.size()); //0
-		System.out.println("Stack is empty    : "+s1.isEmpty());//true
 		s1.push(100);
 		s1.push(200);
 		s1.push(300);
 		s1.push(400);
 		s1.push(500);
 		s1.printStack(); //[500, 400, 300, 200, 100]
-		System.out.println("Size of the stack : "+s1.size()); //5
-		System.out.println("Stack is empty    : "+s1.isEmpty());//false
 		
-		s1.clear();
-		s1.printStack();//[empty]
-		System.out.println("Size of the stack : "+s1.size()); //0
-		System.out.println("Stack is empty    : "+s1.isEmpty());//true
+		int[] dataArray=s1.toArray();
+		System.out.println(Arrays.toString(dataArray));//[500, 400, 300, 200, 100]
 	}
 }
