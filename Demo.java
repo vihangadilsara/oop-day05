@@ -34,5 +34,19 @@ class Demo{
 		n1.next=top;
 		top=n1;
 		printData(top); //[400,300,200,100]
+
+		n1=new Node(500);
+		n1.next=top;
+		top=n1;
+		printData(top); //[500,400,300,200,100]
+		
+		if(top!=null){
+			top=top.next;
+			
+		}
+		
+		
+		
+		printData(top); //[400,300,200,100]
 	}
 }
