@@ -3,50 +3,33 @@ class Node{
 	Node next;
 	Node(int data){this.data=data;}
 }
-class Demo{
-	public static void printData(Node node){
-		System.out.print("[");
-		while(node!=null){
-			System.out.print(node.data+", ");
-			node=node.next;
-		}
-		System.out.println("\b\b]");
+class Stack{
+	private Node top;
+	public void push(int data){
+		//
 	}
-	public static void main(String args[]){
-		Node top=null;
-		
-		Node n1=new Node(100);
-		n1.next=top;
-		top=n1;
-		printData(top); //[100]
-		
-		n1=new Node(200);
-		n1.next=top;
-		top=n1;
-		printData(top); //[200,100]
-		
-		n1=new Node(300);
-		n1.next=top;
-		top=n1;
-		printData(top); //[300,200,100]
-		
-		n1=new Node(400);
-		n1.next=top;
-		top=n1;
-		printData(top); //[400,300,200,100]
+	public void pop(){
+		//	
+	}
+	public void printStack(){
+		//
+	}
+}
 
-		n1=new Node(500);
-		n1.next=top;
-		top=n1;
-		printData(top); //[500,400,300,200,100]
+
+
+
+class Demo{
+	public static void main(String args[]){
+		Stack s1=new Stack();
+		s1.push(100);
+		s1.push(200);
+		s1.push(300);
+		s1.push(400);
+		s1.push(500);
+		s1.printStack(); //[500, 400, 300, 200, 100]
 		
-		if(top!=null){
-			top=top.next;
-			
-		}
-		
-		
-		
-		printData(top); //[400,300,200,100]
+		s1.pop();
+		s1.printStack(); //[400, 300, 200, 100]
 	}
 }
