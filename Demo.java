@@ -4,26 +4,35 @@ class Node{
 	Node(int data){this.data=data;}
 }
 class Demo{
-	public static void main(String args[]){
-		Node n1=new Node(100);
-		n1.next=new Node(200);
-		n1.next.next=new Node(300);
-		n1.next.next.next=new Node(400);
-		n1.next.next.next.next=new Node(500);
-		
-		//prints data- [100, 200, 300, 400, 500] using a while loop
+	public static void printData(Node node){
 		System.out.print("[");
-		
-		System.out.print(n1.data+", "); 
-		n1=n1.next;
-		
-		System.out.print(n1.data+", ");
-		n1=n1.next;
-		
-		while(n1!=null){
-			System.out.print(n1.data+", "); 
-			n1=n1.next;
+		while(node!=null){
+			System.out.print(node.data+", ");
+			node=node.next;
 		}
 		System.out.println("\b\b]");
+	}
+	public static void main(String args[]){
+		Node top=null;
+		
+		Node n1=new Node(100);
+		n1.next=top;
+		top=n1;
+		printData(top); //[100]
+		
+		n1=new Node(200);
+		n1.next=top;
+		top=n1;
+		printData(top); //[200,100]
+		
+		n1=new Node(300);
+		n1.next=top;
+		top=n1;
+		printData(top); //[300,200,100]
+		
+		n1=new Node(400);
+		n1.next=top;
+		top=n1;
+		printData(top); //[400,300,200,100]
 	}
 }
