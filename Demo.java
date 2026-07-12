@@ -84,14 +84,16 @@ class List{
 
 class Demo{
 	public static void main(String args[]){
-		List intList=new List();
-		intList.add(100); //add(data)-->Insertion order[Queue]
-		intList.add(200);
-		intList.add(300);
-		intList.add(400);
-		intList.add(500);
-		intList.printList();//[100, 200, 300, 400, 500]
+		Queue q1=new Queue();
+		q1.add(100);
+		q1.add(200);
+		q1.add(300);
+		q1.add(400);
+		q1.add(500);
+		q1.printQueue();//[100, 200, 300, 400, 500]
 		
-		intList.add(2,250);//[100, 200, 250, 300, 400, 500]
+		q1.remove();
+		q1.printQueue();//[200, 300, 400, 500]
 	}
 }
+
