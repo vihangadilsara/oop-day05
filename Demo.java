@@ -7,28 +7,52 @@ class Node{
 class List{
 	private Node first;
 
-	public void add(int data){
-		Node n1=new Node(data);
-		//find the last node
-		if(isEmpty()){
-			first=n1;
-		}else{
-			Node lastNode=first;
-			while(lastNode.next!=null){
-				lastNode=lastNode.next;
-			}
-			lastNode.next=n1;
-		}
-
+	public void add(int data){ //Insertion order
+		addLast(data); //add(size(),data)
 	}
 	public void add(int index, int data){
-		
+		Node n1=new Node(data);
+		if(index==0){
+			n1.next=first;
+			first=n1;
+		}else{
+			int count=0;
+			Node temp=first;
+			while(count<index-1){
+				count++;
+				temp=temp.next;
+			}
+			n1.next=temp.next;
+			temp.next=n1;
+		}
+	}
+	public void addLast(int data){
+		add(size(),data);
+	}
+	public void addFirst(int data){
+		add(0,data);		
+	}
+	public void removeLast(){
+		remove(size()-1);
+	}
+	public void removeFirst(){
+		remove(0);
 	}
 	public void remove(int index){
-		//	
+		if(!isEmpty() && index>=0 && index<size()){
+			if(index==0){
+				first=first.next;
+			}else{
+				int count=0;
+				Node temp=first;
+				while(count<index-1){
+					count++;
+					temp=temp.next;
+				}
+				temp.next=temp.next.next;
+			}
+		}
 	}
-
-
 	public int get(int index){
 		//
 		return -1;
@@ -79,21 +103,35 @@ class List{
 		return tempDataArray;
 	}
 }
-
-
-
 class Demo{
 	public static void main(String args[]){
-		Queue q1=new Queue();
-		q1.add(100);
-		q1.add(200);
-		q1.add(300);
-		q1.add(400);
-		q1.add(500);
-		q1.printQueue();//[100, 200, 300, 400, 500]
+		List intList=new List();
+		intList.add(100);
+		intList.printList(); //[100]
 		
-		q1.remove();
-		q1.printQueue();//[200, 300, 400, 500]
+		intList.clear();
+		intList.add(0,100);
+		intList.printList(); //[100]
+		
+		intList.clear();
+		intList.addFirst(100);
+		intList.printList(); //[100]
+		
+		intList.clear();
+		intList.addLast(100);
+		intList.printList(); //[100]
+		
+		intList.remove(0);
+		intList.printList(); //[empty]
+		
+		intList.add(100);
+		intList.printList(); //[100]
+		intList.removeFirst();
+		intList.printList(); //[empty]
+		
+		intList.add(100);
+		intList.printList(); //[100]
+		intList.removeLast();
+		intList.printList(); //[empty]
 	}
 }
-
