@@ -23,7 +23,22 @@ class Stack{
 			System.out.print(temp.data+", ");
 			temp=temp.next;
 		}
-		System.out.println("\b\b]");
+		System.out.println(isEmpty() ?"empty]":"\b\b]");
+	}
+	public int size(){
+		Node temp=top;
+		int count=0;
+		while(temp!=null){
+			count++;
+			temp=temp.next;
+		}
+		return count;
+	}
+	public boolean isEmpty(){
+		return top==null;
+	}
+	public void clear(){
+		top=null;
 	}
 }
 class Demo{
